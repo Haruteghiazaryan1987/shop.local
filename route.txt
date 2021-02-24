@@ -1,0 +1,40 @@
++--------+----------+---------------------------------+---------------------+-------------------------------------------------------------------------+--------------+
+|[32m Domain [39m|[32m Method   [39m|[32m URI                             [39m|[32m Name                [39m|[32m Action                                                                  [39m|[32m Middleware   [39m|
++--------+----------+---------------------------------+---------------------+-------------------------------------------------------------------------+--------------+
+|        | GET|HEAD | /                               |                     | Closure                                                                 | web          |
+[39;49m|        | GET|HEAD | api/user                        |                     | Closure                                                                 | api[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth:api     |
+[39;49m|        | POST     | confirm-password                |                     | App\Http\Controllers\Auth\ConfirmablePasswordController@store           | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth         |
+[39;49m|        | GET|HEAD | confirm-password                | password.confirm    | App\Http\Controllers\Auth\ConfirmablePasswordController@show            | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth         |
+[39;49m|        | GET|HEAD | dashboard                       | dashboard           | Closure                                                                 | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth         |
+[39;49m|        | POST     | email/verification-notification | verification.send   | App\Http\Controllers\Auth\EmailVerificationNotificationController@store | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49m[39;49mauth[39;49m[39;49m         |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mthrottle:6,1 |
+[39;49m|        | POST     | forgot-password                 | password.email      | App\Http\Controllers\Auth\PasswordResetLinkController@store             | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | GET|HEAD | forgot-password                 | password.request    | App\Http\Controllers\Auth\PasswordResetLinkController@create            | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | POST     | login                           |                     | App\Http\Controllers\Auth\AuthenticatedSessionController@store          | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | GET|HEAD | login                           | login               | App\Http\Controllers\Auth\AuthenticatedSessionController@create         | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | POST     | logout                          | logout              | App\Http\Controllers\Auth\AuthenticatedSessionController@destroy        | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth         |
+[39;49m|        | POST     | register                        |                     | App\Http\Controllers\Auth\RegisteredUserController@store                | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | GET|HEAD | register                        | register            | App\Http\Controllers\Auth\RegisteredUserController@create               | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | POST     | reset-password                  | password.update     | App\Http\Controllers\Auth\NewPasswordController@store                   | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | GET|HEAD | reset-password/{token}          | password.reset      | App\Http\Controllers\Auth\NewPasswordController@create                  | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mguest        |
+[39;49m|        | GET|HEAD | verify-email                    | verification.notice | App\Http\Controllers\Auth\EmailVerificationPromptController@__invoke    | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mauth         |
+[39;49m|        | GET|HEAD | verify-email/{id}/{hash}        | verification.verify | App\Http\Controllers\Auth\VerifyEmailController@__invoke                | web[39;49m[39;49m          |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49m[39;49mauth[39;49m[39;49m         |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49m[39;49msigned[39;49m[39;49m       |[39;49m
+[39;49m|        |          |                                 |                     |                                                                         | [39;49mthrottle:6,1 |
++--------+----------+---------------------------------+---------------------+-------------------------------------------------------------------------+--------------+
